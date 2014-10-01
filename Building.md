@@ -12,14 +12,14 @@ Or directly packaged with different package managers:
 
 # Getting the source
 ## Source package
-To retrieve the source package go to the [downloads](https://googledrive.com/host/0B3fBvzttpiiSSzlxcHFxRC0zYTA/) page and download the file named:
+To retrieve the source package go to the [downloads](https://googledrive.com/host/0B3fBvzttpiiSNUVYSFF1TmRONmc/) page and download the file named:
 ```
-libluksde-alpha-<version>.tar.gz
+libluksde-experimental-<version>.tar.gz
 ```
 
 To extract the source package run:
 ```
-tar xfv libluksde-alpha-<version>.tar.gz
+tar xfv libluksde-experimental-<version>.tar.gz
 ```
 
 This will create the source directory:
@@ -302,7 +302,7 @@ mount C:\\MinGW /mingw
 
 To build use:
 ```
-tar xfv libluksde-alpha-<version>.tar.gz
+tar xfv libluksde-experimental-<version>.tar.gz
 cd libluksde-<version>/
 CPPFLAGS=-DWINVER=0x0501 ./configure --prefix=/mingw
 make
@@ -506,7 +506,7 @@ yum install rpm-build openssl-devel fuse-devel python-devel
 
 To build:
 ```
-mv libluksde-alpha-<version>.tar.gz libluksde-<version>.tar.gz
+mv libluksde-experimental-<version>.tar.gz libluksde-<version>.tar.gz
 rpmbuild -ta libluksde-<version>.tar.gz
 ```
 
