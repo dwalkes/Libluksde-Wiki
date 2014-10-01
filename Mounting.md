@@ -15,17 +15,17 @@ To mount a LUKSDE volume you can either:
 
 To mount directly from a device file:
 ```
-luksdemountNone /dev/sda2 /mnt/luksdevolume/
+luksdemount -p password /dev/sda2 /mnt/luksdevolume/
 ```
 
 To mount directly our of a RAW storage media image at a certain offset:
 ```
-luksdemountNone -o 524288 image.raw /mnt/luksdevolume/
+luksdemount -p password -o 524288 image.raw /mnt/luksdevolume/
 ```
 
 Note that luksdemount takes an offset in bytes if you're copying the output from mmls multiply by the sector size:
 ```
-luksdemountNone -o $(( 1024 * 512 )) image.raw /mnt/luksdevolume/
+luksdemount -p password -o $(( 1024 * 512 )) image.raw /mnt/luksdevolume/
 ```
 
 This will expose a device file that provides the RAW volume data contained in the LUKS volume.
@@ -78,13 +78,13 @@ user_allow_other
 
 Pass "allow_root" to the fuse sub system using the luksdemount -X option:
 ```
-luksdemount -X allow_rootNone image.raw /mnt/luksdevolume/
+luksdemount -X allow_root -p password image.raw /mnt/luksdevolume/
 ```
 
 ## Windows
 To mount a LUKSDE volume on Windows:
 ```
-luksdemountNone -o 524288 image.raw x:
+luksdemount -p password -o 524288 image.raw x:
 ```
 
 At the moment the luksdemount keeps a hold on the console.
