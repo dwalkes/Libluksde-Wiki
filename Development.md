@@ -12,7 +12,7 @@ pyluksde.get_version()
 import pyluksde
 
 luksde_volume = pyluksde.volume()
-bde_volume.set_password("password")
+luksde_volume.set_password("password")
 
 luksde_volume.open("image.raw")
 
@@ -28,7 +28,7 @@ import pyluksde
 file_object = open("image.raw", "rb")
 
 luksde_volume = pyluksde.volume()
-bde_volume.set_password("password")
+luksde_volume.set_password("password")
 
 luksde_volume.open_file_object(file_object)
 
