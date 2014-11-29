@@ -12,7 +12,7 @@ Or directly packaged with different package managers:
 
 # Getting the source
 ## Source package
-To retrieve the source package go to the [downloads](https://googledrive.com/host/0B3fBvzttpiiSNUVYSFF1TmRONmc/) page and download the file named:
+To retrieve the source package go to the [downloads](https://github.com/libyal/libluksde/releases) page and download the file named:
 ```
 libluksde-experimental-<version>.tar.gz
 ```
@@ -28,7 +28,19 @@ libluksde-<version>
 ```
 
 ## Git
-To retrieve the source from the git repository make sure to install: git, aclocal, autoconf, automake, autopoint, gettextize and libtoolize.
+**Note that the git repository holds the development version of the source code.**
+
+**If you are not developing it is recommended that you download a source package instead.**
+
+To retrieve the source from the git repository make sure to install:
+* git
+* aclocal
+* autoconf
+* automake
+* autopoint or gettextize
+* libtoolize
+* pkg-config
+
 
 To download and prepare the source for building run:
 ```
@@ -38,7 +50,14 @@ cd libluksde/
 ./autogen.sh
 ```
 
-**Note that the source from the git repository will not work without synchronizing the library dependencies "./synclibs.sh" and having the autotools generate the necessary files "./autogen.sh".**
+The source from the git repository will not work without synchronizing the library dependencies "./synclibs.sh" and having the autotools generate the necessary files "./autogen.sh".
+
+### Mac OS X
+On Mac OS X the XCode command line tools no longer provide the autotools you can obtain them e.g. via [MacPorts](https://www.macports.org/).
+Install the following packages:
+```
+sudo port install autoconf automake gettext libtool pkgconfig
+```
 
 # Using GNU Compiler Collection (GCC)
 
@@ -123,6 +142,7 @@ If you want to use Cygwin to build libluksde make sure to have the following pac
 * libiconv
 * libtool
 * make
+* pkg-config
 * openssl-devel (optional but recommended)
 
 
@@ -139,14 +159,13 @@ luksdetools/.libs/luksdemount.exe
 
 ### Using the DLL
 Make sure you use define LIBLUKSDE_DLL_IMPORT before including <libluksde.h>.
-* **TODO describe dependencies**
+
+To be able to use the DLL on other systems than the build system you'll also need to provide:
+* cygwin1.dll
 
 ## Mac OS X
 ### Universal binary
 With XCode you can build a Mac OS X universal binary to run on multiple architectures. The supported architectures and exact command differs per version of Mac OS X.
-
-### libtoolize
-If you find that libtoolize is missing use glibtoolize instead.
 
 #### Mac OS X 10.4
 E.g. on Mac OS X 10.4 to build an PPC and Intel 32-bit multi binary, run the following commands:
@@ -177,6 +196,9 @@ LDFLAGS="-Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/Ma
 make
 make install
 ```
+
+### libtoolize
+If you find that libtoolize is missing use glibtoolize instead.
 
 ### Python-bindings
 Mac OS X comes with multiple platform specific build Python versions. If you install a different version of Python on Mac OS X make sure that when building and running the Python-bindings you're using the correct version otherwise it will likely result in one of the following errors:
@@ -311,7 +333,8 @@ make
 ## Using the DLL
 Make sure you use define LIBLUKSDE_DLL_IMPORT before including <libluksde.h>.
 
-* **TODO describe dependencies**
+To be able to use the DLL on other systems than the build system you'll also need to provide:
+* libgcc_s_dw2-1.dll (or equivalent)
 
 ## Troubleshooting
 While running make I get an error similar to the following:
@@ -427,7 +450,8 @@ msbuild msvscpp\libluksde.sln /p:Configuration=Release;Platform=Win32
 ## Using the DLL
 Make sure you use define LIBLUKSDE_DLL_IMPORT before including <libluksde.h>.
 
-On other systems than the build system you'll also need to install the Visual Studio Redistributable package for the DLL to run.
+To be able to use the DLL on other systems than the build system you'll also need to provide:
+* the Microsoft Visual C++ Run-Time DLL (part of the Visual C++ Redistributable package)
 
 ## 64-bit with Microsoft Visual Studio express
 To build a 64-bit version of libluksde with Microsoft Visual Studio
