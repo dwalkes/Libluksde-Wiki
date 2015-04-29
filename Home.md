@@ -44,5 +44,5 @@ Planned:
 For more information see:
 * [How to build from source](https://github.com/libyal/libluksde/wiki/Building)
 * [Downloads](https://github.com/libyal/libluksde/releases)
-* [Documentation](https://googledrive.com/host/0B3fBvzttpiiSNUVYSFF1TmRONmc/)
+* [Documentation](https://github.com/libyal/libluksde/tree/master/documentation)
 
