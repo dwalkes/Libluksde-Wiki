@@ -45,6 +45,11 @@ You can now mount the device file as a loopback device:
 ```
 mount -o loop,ro /mnt/luksdevolume/luksde1 /mnt/ntfs_file_system
 ```
+## Mounting on Mac
+On Mac system you may see a failure " -o loop: option not supported" during the mount step above.  Use [hdiutil](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/hdiutil.1.html) instead, for instance:
+```
+hdiutil attach -imagekey diskimage-class=CRawDiskImage -nomount /mnt/luksdevolume/luksde1
+```
 
 ## Obtaining the volume offset
 There are several ways to obtain the volume offset.
